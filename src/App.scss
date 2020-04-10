@@ -1,0 +1,121 @@
+
+$colorRed: #EB5C56; 
+$colorBlue: #6ECDE1;
+$colorYellow: #F7C74A;
+$colorGreen: #63CB89;
+
+@mixin size($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $colorBlue;
+}
+
+.todoList {
+  max-width: 500px;
+  min-height: 600px;
+  margin: 30px auto 0px auto;
+  padding: 20px 50px;
+  background-color: #fff;
+  color: black;
+  box-shadow: 15px 15px 0px rgba(black, 0.3);
+  transition: all 0.7s;
+  text-align: center;
+
+  &:hover {
+    transform: translate(0px, -10px);
+    box-shadow: 25px 25px 0px rgba(black, 0.3);
+  }
+
+  h1 {
+    font-size: 48px;
+    margin: 10px 0px;
+  }
+
+  h5 {
+    margin: 0;
+  }
+
+  p {
+    margin: 10px 0px 20px 0px;
+    letter-spacing: 1px;
+  }
+}
+
+.header__form {
+  display: flex;
+}
+
+.header__input, .list__input {
+  @include size(80%, 50px);
+  padding: 0px 10px;
+  background-color: #eee;
+  color: black;
+  font-size: 18px;
+  border: none;
+  border-bottom: 1px solid rgba(white, 0.7);
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    font-size: 18px;
+  }
+}
+
+.header__btn {
+  @include size(70px, 50px);
+  padding: 5px;
+  margin-left: auto;
+  background-color: $colorGreen;
+  border: none;
+  color: black;
+  outline: none;
+  font-size: 18px;
+  transition: all .5s;
+
+  &:hover {
+    cursor: pointer;
+    background-color: darken($colorGreen, 2);
+  }
+}
+
+.list {
+  height: 400px;
+  margin-top: 10px;
+  overflow: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.list__item {
+  margin: 15px 0px;
+  display: flex;
+  align-items: center;
+}
+
+.list__input {
+  border: none;
+  background-color: transparent;
+}
+
+.list__delItemBtn {
+  cursor: pointer;
+  margin-left: auto;
+  color: $colorRed;
+  transition: all .5s;
+
+  &:hover {
+    transform: rotate(360deg);
+  }
+}
+
